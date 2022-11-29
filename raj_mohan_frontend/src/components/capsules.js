@@ -52,6 +52,7 @@ export default function Capsules() {
       setPagesCount(
         data.length / 9 === 0 ? data.length : Math.floor(data.length / 9) + 1
       );
+      setCapsules(data)
     } catch (error) {}
   };
 

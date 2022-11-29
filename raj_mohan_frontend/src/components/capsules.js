@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
-import { Grid,Box,InputLabel,MenuItem,Pagination,FormControl,Select,TextField } from "@mui/material";
+import axios from "axios";
+import {
+  Grid,
+  Box,
+  InputLabel,
+  MenuItem,
+  Pagination,
+  FormControl,
+  Select,
+  TextField,
+} from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import CapsuleCard from "./CapsuleCard";
 
-
 const baseUrl = "http://localhost:3001";
 
-const getAllCapsules = (payload) => axios.post(`${baseUrl}/get-all-capsules`, payload);
+const getAllCapsules = (payload) =>
+  axios.post(`${baseUrl}/get-all-capsules`, payload);
 
 const getPagesCount = () => axios.get(`${baseUrl}/get-all-capsules-count`);
 
-const filterCapsules = (payload) => axios.post(`${baseUrl}/get-filtered-capsules`, payload);
+const filterCapsules = (payload) =>
+  axios.post(`${baseUrl}/get-filtered-capsules`, payload);
 
-const getNextCapsules = (payload) => axios.post(`${baseUrl}/get-next-capsules`, payload);
+const getNextCapsules = (payload) =>
+  axios.post(`${baseUrl}/get-next-capsules`, payload);
 
 export default function Capsules() {
   const [type, setType] = useState([]);
@@ -52,7 +63,7 @@ export default function Capsules() {
       setPagesCount(
         data.length / 9 === 0 ? data.length : Math.floor(data.length / 9) + 1
       );
-      setCapsules(data)
+      setCapsules(data);
     } catch (error) {}
   };
 
@@ -165,25 +176,25 @@ export default function Capsules() {
           />
         </LocalizationProvider>
       </Box>
-        <Box sx={{ paddingTop: "100px" }}>
-          <Grid>
-            <Grid container spacing={4}>
-              {capsules.map((item) => (
-                <Grid xs={12} sm={6} md={4}>
-                  <CapsuleCard item={item} />
-                </Grid>
-              ))}
-              <Grid
-                xs={12}
-                sm={6}
-                md={4}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              ></Grid>
-            </Grid>
+      <Box sx={{ paddingTop: "50px" }}>
+        <Grid>
+          <Grid container spacing={4}>
+            {capsules.map((item) => (
+              <Grid xs={12} sm={6} md={4}>
+                <CapsuleCard item={item} />
+              </Grid>
+            ))}
+            <Grid
+              xs={12}
+              sm={6}
+              md={4}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            ></Grid>
           </Grid>
-        </Box>
+        </Grid>
+      </Box>
 
       <Box
         style={{

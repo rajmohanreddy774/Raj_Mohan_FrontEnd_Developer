@@ -29,9 +29,13 @@ export default function Header() {
             paddingTop: "30px",
           }}
         >
-          <Button sx={{ color: "black" }}>RIDESHARE</Button>
-          <Button sx={{ color: "black" }}>ROCKETS</Button>
-          <Button sx={{ color: "black" }}>CAPSULES</Button>
+          <Button sx={{ paddingRight: "30%", color: "black" }}>
+            RIDESHARE
+          </Button>
+          <Button sx={{ paddingRight: "30%", color: "black" }}>ROCKETS</Button>
+          <Button sx={{ paddingRight: "30%", color: "black" }}>CAPSULES</Button>
+          <Button sx={{ paddingRight: "30%", color: "black" }}>ABOUT</Button>
+          <Button sx={{ paddingRight: "30%", color: "black" }}>LOGIN</Button>
         </Box>
       </Container>
     </Box>
